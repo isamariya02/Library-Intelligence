@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Request Book</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap');
+        
+        body {
+            font-family: 'Inter';
+            background-color: #F1F5F9;
+        }
+        header {
+            background-color: #F1F5F9;
+            color: #333;
+            padding: 15px 0;
+            display: flex;
+            align-items: center;
+            font-weight: 500;
+        }
+        .logo {
+            margin-left: 2%;
+            height: 50px;
+        }
+        .main-container {
+            width: 100%;
+            height: 88vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .form-container {
+            margin-top: -6%;
+            width: 42%;
+            height: 54%;
+            background-color: #FFFFFF;
+            padding: 20px;
+            border-radius: 12px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+        .form-container h2 {
+            text-align: center;
+            color: #27337B;
+            font-family: 'Inter';
+            font-weight: 500;
+        }
+        .form-group {
+            margin-bottom: 15px;
+        }
+        .form-group label {
+            display: block;
+            color: #64748B;
+        }
+        .form-group input, .form-group select {
+            width: 96%;
+            padding: 8px;
+            border: 1px solid #E2E8F0;
+            border-radius: 12px;
+        }
+        .form-group select {
+            width: 98.8%;
+            padding: 8px;
+            border: 1px solid #E2E8F0;
+            border-radius: 12px;
+            color: #27337B;
+        }
+        .form-group input:focus, .form-group select:focus {
+            background-color: #f6f6f6;
+            border: 1px solid #E2E8F0;
+        }
+        .form-group button {
+            width: 100%;
+            padding: 10px;
+            border: none;
+            border-radius: 12px;
+            background: linear-gradient(45deg, #27337B, #6A7FFD); 
+            color: #FFFFFF;
+            font-size: 16px;
+            cursor: pointer;
+        }
+        .form-group button:hover {
+            background-color: #27337B;
+        }
+        .gradient-text {
+            background: linear-gradient(45deg, #27337B, #6A7FFD); /* Gradient colors */
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <img src="static/logo.png" alt="Christ University Logo" class="logo">
+    </header>
+    <div class="main-container">
+        <div class="form-container">
+            <h2>Hey <span class="gradient-text">Christites!</span> Want a New Book in the Library? Request Here!</h2>
+            <form id="bookRequestForm">
+                <div class="form-group">
+                    <input type="text" id="studentName" name="studentName" placeholder="Enter your name" required>
+                </div>
+                <div class="form-group">
+                    <select id="department" name="department" required>
+                        <option value="" disabled selected>Select your department</span></option>
+                        <option value="Computer Science">Computer Science</option>
+                        <option value="Economics">Economics</option>
+                        <option value="English">English</option>
+                        <option value="Psychology">Psychology</option>
+                        <option value="Commerce">Commerce</option>
+                        <!-- Add more options as needed -->
+                    </select>
+                </div>
+                <div class="form-group">
+                    <input type="text" id="bookTitle" name="bookTitle" placeholder="Enter the book title" required>
+                </div>
+                <div class="form-group">
+                    <input type="text" id="bookAuthor" name="bookAuthor" placeholder="Enter the author" required>
+                </div>
+                <div class="form-group">
+                    <button type="submit">Submit Request</button>
+                </div>
+            </form>
+        </div>
+    </div>
+    <script>
+        document.getElementById('bookRequestForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+            const studentName = document.getElementById('studentName').value;
+            const department = document.getElementById('department').value;
+            const bookTitle = document.getElementById('bookTitle').value;
+            const bookAuthor = document.getElementById('bookAuthor').value;
+
+            fetch('/submit_request', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({
+                    studentName: studentName,
+                    department: department,
+                    bookTitle: bookTitle,
+                    bookAuthor: bookAuthor
+                })
+            }).then(response => response.json()).then(data => {
+                if (data.success) {
+                    alert('Request sent successfully!');
+                } else {
+                    alert('Failed to send request.');
+                }
+            }).catch(error => {
+                alert('Error sending request: ' + error);
+            });
+        });
+    </script>
+</body>
+</html>

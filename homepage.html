@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Library Intelligence for Christ University</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap');
+
+        html,
+        body {
+            height: 100%;
+            width: 100%;
+            margin: 0;
+            font-family: 'Inter', sans-serif;
+            background-color:#6A7FFD;
+        }
+
+        [data-testid="stAppViewContainer"] {
+            background-image: url("https://static.vecteezy.com/system/resources/previews/016/022/575/original/illustration-of-students-study-in-library-young-people-spend-time-together-and-search-information-single-line-art-style-vector.jpg");
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-position-y: 56px;
+        }
+
+        .main-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 100%;
+            height: 100%;
+        }
+
+        .title-container {
+            width: 100%;
+            height: 40%;
+            display: flex;
+            flex-direction: column;
+            justify-content: top;
+            align-items: center;
+            text-align: center;
+            padding: 12px;
+            box-sizing: border-box;
+        }
+
+        .home-title {
+            font-size: 44px;
+            font-weight: 500;
+            background: linear-gradient(45deg, #27337B, #6A7FFD);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 20px;
+        }
+
+        .subtitle {
+            width: 62%;
+            font-size: 14px;
+            font-weight: 500;
+            color: #64748B;
+            margin-bottom: 20px;
+        }
+
+        .start-button {
+            display: flex;
+            padding: 12px 20px;
+            margin-right: 4px;
+            align-items: center;
+            gap: 10px;
+            color: #FFFFFF;
+            background-color: #2A4AA2;
+            border: none;
+            border-radius: 12px;
+            cursor: pointer;
+            font-family: 'Inter';
+            font-size: 12px;
+        }
+
+        .start-button:hover {
+            transform: translateY(-2px);
+        }
+
+        .button-container {
+            display: flex;
+            align-item: center;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="main-container">
+        <div class="title-container">
+            <div class="home-title">Welcome to your Library Assistant!</div>
+            <div class="subtitle">We're excited to help you find your next great read. Just tap on the button below to start chatting with our virtual librarian.</div>
+            <div class="button-container">
+                <a href="?start_chat=true">
+                    <button class="start-button">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="12" height="16" viewBox="0 0 20 21" fill="none">
+                            <path
+                                d="M15.1106 12.2532C10.1332 11.1292 9.36226 10.3582 8.23829 5.38087C8.18679 5.15337 7.9843 4.99138 7.7503 4.99138C7.51631 4.99138 7.31381 5.15337 7.26232 5.38087C6.13784 10.3582 5.36736 11.1292 0.38999 12.2532C0.161996 12.3052 0 12.5072 0 12.7412C0 12.9752 0.161996 13.1772 0.38999 13.2292C5.36736 14.3536 6.13784 15.1246 7.26232 20.1015C7.31381 20.329 7.51631 20.491 7.7503 20.491C7.9843 20.491 8.18679 20.329 8.23829 20.1015C9.36276 15.1246 10.1332 14.3536 15.1106 13.2292C15.3386 13.1772 15.5001 12.9752 15.5001 12.7412C15.5001 12.5072 15.3381 12.3052 15.1106 12.2532Z"
+                                fill="white" />
+                            <path
+                                d="M19.6105 4.50388C16.9646 3.9064 16.5931 3.53491 15.9956 0.889475C15.9436 0.661481 15.7416 0.499985 15.5076 0.499985C15.2736 0.499985 15.0716 0.661481 15.0196 0.889475C14.4222 3.53491 14.0507 3.9064 11.4052 4.50388C11.1772 4.55588 11.0157 4.75788 11.0157 4.99187C11.0157 5.22586 11.1772 5.42786 11.4052 5.47986C14.0507 6.07734 14.4222 6.44883 15.0196 9.09477C15.0716 9.32226 15.2736 9.48426 15.5076 9.48426C15.7416 9.48426 15.9436 9.32226 15.9956 9.09477C16.5931 6.44883 16.9646 6.07734 19.6105 5.47986C19.838 5.42786 20 5.22586 20 4.99187C20 4.75788 19.838 4.55588 19.6105 4.50388Z"
+                                fill="white" />
+                        </svg><span>Start Chat</span>
+                    </button>
+                </a>
+                <a href="http://localhost:5000/book_request" target="_blank"><button class="start-button">Request a Book</button></a>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
